@@ -15,28 +15,27 @@
 
 Opensource LLMs: Supposing you are given a dataset with a limited understanding of the data and the columns are labelled properly, could you use an open-source LLM to understand the data? 
  
-What is the purpose of the dataset? 
-What type of data is it (e.g., marketing, transactional, dimensional, etc.)?  
-What are the key entities in the dataset? 
-What are the relationships between the entities? 
-What are the key metrics or KPIs that can be measured from the dataset? 
- 
-Identify the columns that has values as codes and require another description fields to understand the business value. 
-Identify the columns that have junk values. For Example. Your field name is Country and Delhi is one of the available values.  
-Suggest suitable data types, (int, float, double etc) 
-Identify the date columns, and its format? Identify if different date formats available in single column. 
-Identify Trends. Ex – rise is sales on every holiday season. 
-Identify the anomalies. 
-•	Duplicate records. 
-•	Potential duplicate records, for example, the only column that makes the 2 records distinct is “batchId” or “ingestion date”. 
-•	Incomplete or invalid data, such as missing values where data is expected to be present.  
-•	Data corruption can occur when a number is too large and is treated as scientific notation. 
+- What is the purpose of the dataset? 
+- What type of data is it (e.g., marketing, transactional, dimensional, etc.)?  
+- What are the key entities in the dataset? 
+- What are the relationships between the entities? 
+- What are the key metrics or KPIs that can be measured from the dataset? 
+- Identify the columns that has values as codes and require another description fields to understand the business value. 
+- Identify the columns that have junk values. For Example. Your field name is Country and Delhi is one of the available values.  
+- Suggest suitable data types, (int, float, double etc) 
+- Identify the date columns, and its format? Identify if different date formats available in single column. 
+- Identify Trends. Ex – rise is sales on every holiday season. 
+- Identify the anomalies. 
+  -	Duplicate records. 
+  -	Potential duplicate records, for example, the only column that makes the 2 records distinct is “batchId” or “ingestion date”. 
+  -	Incomplete or invalid data, such as missing values where data is expected to be present.
+  -	Data corruption can occur when a number is too large and is treated as scientific notation. 
  
 Metrics: 
  
-How did you evaluate the LLM? 
-Create the test cases and submit. 
-What are the LLM limitations you found while doing this assignment.
+- How did you evaluate the LLM? 
+- Create the test cases and submit. 
+- What are the LLM limitations you found while doing this assignment.
 
 ## Overview
 This project utilizes an open-source Language Learning Model (LLM) called Llama 2.0 to understand and analyze a dataset. The process involves reading a CSV file, splitting the data into manageable chunks, converting these chunks into embeddings, and storing these embeddings in a FAISS database. The LLM is then used to answer queries about the data.
