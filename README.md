@@ -61,39 +61,41 @@ This project utilizes an open-source Language Learning Model (LLM) called Llama 
 5. Recognizing Limitations: We recognized that there are certain types of questions that our current approach may not be able to answer effectively. For instance, questions about incomplete or invalid data, such as missing values where data is expected to be present, or data corruption issues, such as when a number is too large and is treated as scientific notation, require logical or analytical processing that goes beyond simple SQL querying or abstract questioning from an LLM. These types of questions often require more complex data analysis techniques and methodologies.
 
 ## Flowchart
- ![Alt text](Images/Flowchart.png?raw=true "Title")
+ ![Alt text](Images/Flowchart.png?raw=true "Flowchart")
 
 ## Code Breakdown
 1.	Data Loading: The code begins by loading a CSV file using the CSVLoader class from the langchain.document_loaders.csv_loader module. The path to the CSV file is specified in the path variable.
 2.	Data Splitting: The loaded data is then split into chunks using the RecursiveCharacterTextSplitter class from the langchain.text_splitter module. The size of the chunks is determined based on the total number of characters in the column names and the first row of the data.
- 
+ ![Alt text](Images/code_breakdown_1.png?raw=true "Data Splitting")
+
 3.	Embedding Generation: The HuggingFaceEmbeddings class from the langchain.embeddings module is used to generate embeddings for the text chunks. These embeddings are created using the ‘sentence-transformers/all-MiniLM-L6-v2’ model from Hugging Face.
 4.	Embedding Storage: The generated embeddings are stored in a FAISS database using the FAISS class from the langchain.vectorstores module.
-
+![Alt text](Images/code_breakdown_2.png?raw=true "Embedding Storage")
  
 5.	LLM Setup: The CTransformers class from the langchain.llms module is used to set up the LLM. The LLM model is specified in the llm variable.
- 
+![Alt text](Images/code_breakdown_3.png?raw=true "LLM Setup")
+
 6.	Query Answering: The ConversationalRetrievalChain class from the langchain.chains module is used to answer queries about the data. The LLM and the retriever (created from the FAISS database) are passed to this class. The user can input a query, and the code will return an answer based on the data.
 7.	For Queries which require entire dataset as context: We translate the query in plaintext to SQL Query using Llama2.0 LLM model and use it to query the dataset and retrieve results.
-
+![Alt text](Images/code_breakdown_4.png?raw=true "SQL Query")
  
 
 ## Evaluation
 The LLM was evaluated based on its ability to answer queries about the data. Test cases were created by inputting different queries and comparing the returned answers to the actual data.
 
 The answers that we got for Titanic Dataset:
-
+![Alt text](Images/evaluation_1.png?raw=true "Prompts")
  
 
 For Question asking number of duplicate records in the data:
+ ![Alt text](Images/evaluation_2.png?raw=true "Prompts")
  
- 
-
+![Alt text](Images/evaluation_3.png?raw=true "Prompts")
 
 The answers that we got for Diabetes Dataset:
-
+![Alt text](Images/evaluation_4.png?raw=true "Prompts")
  
- 
+![Alt text](Images/evaluation_5.png?raw=true "Prompts") 
 
 ## Limitations
 
