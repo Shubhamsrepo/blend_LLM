@@ -44,7 +44,7 @@ This project utilizes an open-source Language Learning Model (LLM) called Llama 
 ## Project Timeline
 1. Exploration of Open-Source LLMs: We started with TAPAS, TAPEX, and TableQA. However, we found that these models had limitations:
    -	They are designed to answer questions that can be converted into SQL queries, and might struggle with more abstract questions.
-   -	TAPAS has a limitation on the size of the tables it can handle, commonly configured to a limit of 64 rows, similarly with Tapex.
+   -	TAPAS has a limitation on the size of the tables it can handle, similarly with Tapex.
 
 
 2. Experimentation with Hugging Face Models: We then turned to Hugging Face and experimented with several models including Mistral 7B and Falcon. However, we faced issues:
