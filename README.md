@@ -44,20 +44,20 @@ This project utilizes an open-source Language Learning Model (LLM) called Llama 
 
 ## Project Timeline
 1. Exploration of Open-Source LLMs: We started with TAPAS, TAPEX, and TableQA. However, we found that these models had limitations:
- 
 •	They are designed to answer questions that can be converted into SQL queries, and might struggle with more abstract questions.
-•	TAPAS has a limitation on the size of the tables it can handle, commonly configured to a limit of 64 rows, similarly with
+•	TAPAS has a limitation on the size of the tables it can handle, commonly configured to a limit of 64 rows, similarly with Tapex.
 
 
 2. Experimentation with Hugging Face Models: We then turned to Hugging Face and experimented with several models including Mistral 7B and Falcon. However, we faced issues:
-
-•	The models often outputted gibberish responses for analytical questions about the table, such as the number of rows.
-•	The reason for these incorrect responses was the context limit of the models.
+ •	The models often outputted gibberish responses for analytical questions about the table, such as the number of rows.
+ •	The reason for these incorrect responses was the context limit of the models.
 
 3.  Attempt to Use PandasAI with Open-Source LLMs: We attempted to use PandasAI with open-source LLMs such as StarCoder and Falcon from Hugging Face. However, we encountered issues:
-•	The output was often ‘Unfortunately, I was not able to answer your question, because of the following error: No code found in the response.’
-•	Upon reaching out to the developers, we were informed that these models are deprecated as they aren’t keeping up with the PandasAI updates.
+ •	The output was often ‘Unfortunately, I was not able to answer your question, because of the following error: No code found in the response.’
+ •	Upon reaching out to the developers, we were informed that these models are deprecated as they aren’t keeping up with the PandasAI updates.
+
 4. Settling on Llama 2.0: After much exploration and experimentation, we decided to use a two-pronged approach to understand and analyse our datasets. For generic or abstract questions, we are using the Llama 2.0 model to generate responses. For questions that can be translated into SQL queries, we are using the Llama 2.0 model to generate the SQL query, which is then executed to retrieve results from the dataset.
+
 5. Recognizing Limitations: We recognized that there are certain types of questions that our current approach may not be able to answer effectively. For instance, questions about incomplete or invalid data, such as missing values where data is expected to be present, or data corruption issues, such as when a number is too large and is treated as scientific notation, require logical or analytical processing that goes beyond simple SQL querying or abstract questioning from an LLM. These types of questions often require more complex data analysis techniques and methodologies.
 
 ## Flowchart
