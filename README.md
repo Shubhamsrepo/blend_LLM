@@ -61,7 +61,7 @@ This project utilizes an open-source Language Learning Model (LLM) called Llama 
 5. Recognizing Limitations: We recognized that there are certain types of questions that our current approach may not be able to answer effectively. For instance, questions about incomplete or invalid data, such as missing values where data is expected to be present, or data corruption issues, such as when a number is too large and is treated as scientific notation, require logical or analytical processing that goes beyond simple SQL querying or abstract questioning from an LLM. These types of questions often require more complex data analysis techniques and methodologies.
 
 ## Flowchart
- 
+ ![Alt text](Images/Flowchart.png?raw=true "Title")
 
 ## Code Breakdown
 1.	Data Loading: The code begins by loading a CSV file using the CSVLoader class from the langchain.document_loaders.csv_loader module. The path to the CSV file is specified in the path variable.
