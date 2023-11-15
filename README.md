@@ -66,6 +66,8 @@ This project utilizes an open-source Language Learning Model (LLM) called Llama 
 ## Code Breakdown
 1.	Data Loading: The code begins by loading a CSV file using the CSVLoader class from the langchain.document_loaders.csv_loader module. The path to the CSV file is specified in the path variable.
 2.	Data Splitting: The loaded data is then split into chunks using the RecursiveCharacterTextSplitter class from the langchain.text_splitter module. The size of the chunks is determined based on the total number of characters in the column names and the first row of the data.
+
+
  ![Alt text](Images/code_breakdown_1.png?raw=true "Data Splitting")
 
 3.	Embedding Generation: The HuggingFaceEmbeddings class from the langchain.embeddings module is used to generate embeddings for the text chunks. These embeddings are created using the ‘sentence-transformers/all-MiniLM-L6-v2’ model from Hugging Face.
