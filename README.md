@@ -52,8 +52,8 @@ This project utilizes an open-source Language Learning Model (LLM) called Llama 
    -	The reason for these incorrect responses was the context limit of the models.
 
 3.  Attempt to Use PandasAI with Open-Source LLMs: We attempted to use PandasAI with open-source LLMs such as StarCoder and Falcon from Hugging Face. However, we encountered issues:
-   -	The output was often ‘Unfortunately, I was not able to answer your question, because of the following error: No code found in the response.’
-   -	Upon reaching out to the developers, we were informed that these models are deprecated as they aren’t keeping up with the PandasAI updates.
+   - The output was often ‘Unfortunately, I was not able to answer your question, because of the following error: No code found in the response.’
+   - Upon reaching out to the developers, we were informed that these models are deprecated as they aren’t keeping up with the PandasAI updates.
 
 4. Settling on Llama 2.0: After much exploration and experimentation, we decided to use a two-pronged approach to understand and analyse our datasets. For generic or abstract questions, we are using the Llama 2.0 model to generate responses. For questions that can be translated into SQL queries, we are using the Llama 2.0 model to generate the SQL query, which is then executed to retrieve results from the dataset.
 
