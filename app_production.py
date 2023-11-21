@@ -73,9 +73,12 @@ def main():
         llm = load_llm_model(model_path, config)
         qa = create_conversational_chain(llm, docsearch.as_retriever())
 
-        history = []
-        past = ["Hey !"]
-        generated = ["Hello ! Ask me anything about " + uploaded_file.name]
+        if 'history' not in st.session_state:
+            st.session_state['history'] = []
+        if 'generated' not in st.session_state:
+            st.session_state['generated'] = ["Hello ! Ask me anything about " + uploaded_file.name]
+        if 'past' not in st.session_state:
+            st.session_state['past'] = ["Hey !"]
 
         response_container = st.container()
         container = st.container()
@@ -86,15 +89,15 @@ def main():
                 submit_button = st.form_submit_button(label='Send')
             
             if submit_button and user_input:
-                output, history = conversational_chat(qa, user_input, history)
-                past.append(user_input)
-                generated.append(output)
+                output, st.session_state['history'] = conversational_chat(qa, user_input, st.session_state['history'])
+                st.session_state['past'].append(user_input)
+                st.session_state['generated'].append(output)
 
-        if generated:
+        if st.session_state['generated']:
             with response_container:
-                for i in range(len(generated)):
-                    message(past[i], is_user=True, key=str(i) + '_user', avatar_style="big-smile")
-                    message(generated[i], key=str(i), avatar_style="thumbs")
+                for i in range(len(st.session_state['generated'])):
+                    message(st.session_state['past'][i], is_user=True, key=str(i) + '_user', avatar_style="big-smile")
+                    message(st.session_state['generated'][i], key=str(i), avatar_style="thumbs")
 
 if __name__ == "__main__":
     main()
